@@ -1,53 +1,45 @@
-import React,{useState, useEffect} from "react";
-import './style.css';
-import { Link } from "react-router-dom";
-
-
-const Products =()=>{
-    const [products,setProducts]= useState([]);
-    const [loading, setLoading]=useState(false)
+import React,{useState,useEffect} from "react";
+import './style.css'
+const Products = ()=>{
+    const [products,setProducts] = useState([]);
+    const [loading,setLoading] = useState(false);
     useEffect(()=>{
         (async()=>{
             await getProducts();
-        })()
-    }, [])
-    const getProducts= async()=>{
+        })();
+    },[])
+    console.log({products});
+    const getProducts = async ()=>{
         try{
-            setLoading(true)
-            const response=await fetch('https://dummyjson.com/products')
-            const result=await response.json();
-            setProducts(result.products)
-            setLoading(false);
+            setLoading(true);
+            const response = await fetch('https://dummyjson.com/products')
+            const result = await response.json();
+             setProducts(result.products);
+             setLoading(false);
         }
         catch(error){
-            console.log(error.message)
+            console.log(error.message);
         }
-    };
-        if(loading){
-            return <h2>Loading...</h2>
+    }
+    if(loading){
+        return <h2>Loading.....</h2>
     }
     return(
+        <>
+        <h1>All products</h1>
         <div className="container">
-            <h1 className="h1">All Products</h1>
-            {products.map(item =>(
-                <div>
-                    <img src={item.thumbnail} alt={item.title} className="thumbnail" />
-                <h2 className="heading">{item.title}</h2>
-                <p className="heading">Price: ${item.price}</p>
-                <p className="heading">Discount:{item.discountPercentage}%</p>
-                <button onClick={() => onAddproductclick (item)} className="view">View product details</button>
+            {products.map(item => (
+                <div key={item.id} className="product">
+                <h2>{item.title}</h2>
+                <img src={item.images[0]} alt={item.title}/>
+                <p>Rating:{item.rating}</p>
+                <p>Brand: {item.brand}</p>
+                <p>Category: {item.category}</p>
+                <p>Description: {item.description}</p>
                 </div>
             ))}
-            <button onClick={() => onProductClick ()} className="add">Add Product</button>
         </div>
+        </>
     );
 };
-
-const onProductClick= (products) =>{
-
-}
-
-const onAddproductclick =(products) =>{
-
-}
-export default Products
+export default Products;

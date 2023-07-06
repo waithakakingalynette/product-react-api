@@ -3,13 +3,21 @@ import './App.css';
 import Login from './Login';
 import Products from './Products';
 import React from 'react';
-import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+import ProductDetails from './ProductDetails';
+import NavBar from './Nav-Bar';
 
 function App() {
   return (
     <div>
-      <Login/>
-      <Products/>
+      <NavBar/>
+      <BrowserRouter>
+      <Routes>
+        <Route index element ={<Login/>}/>
+        <Route path='/Login' element ={<Products/>}/>
+        <Route path='/ProductDetails/ :productId' element ={<ProductDetails/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
