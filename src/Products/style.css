@@ -1,0 +1,41 @@
+.container{
+    background: rgb(170, 188, 143);
+}
+.thumbnail{
+    margin-left: 30%;
+    max-width: 300px;
+    margin-top: 3%;
+    /* display: grid; */
+}
+
+.heading{
+    margin-left: 30%;
+
+}
+
+.view{
+    margin-left: 30%;
+    background: chartreuse;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 20%;
+    outline: none;
+    
+}
+
+.add{
+    margin-left: 33%;
+    margin-top:2%;
+    background: chartreuse;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 20%;
+    outline: none;
+
+}
+
+.h1{
+    margin-left: 30%;
+}
