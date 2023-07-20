@@ -14,8 +14,9 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route index element ={<Login/>}/>
-        <Route path='/Login' element ={<Products/>}/>
-        <Route path='/ProductDetails/ :productId' element ={<ProductDetails/>}/>
+        <Route path='/Login' element ={<Login/>}/>
+        <Route path='/products' element={<Products/>}/>
+        <Route path='/ProductDetails/' element ={<ProductDetails/>}/>
       </Routes>
       </BrowserRouter>
     </div>

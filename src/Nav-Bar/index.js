@@ -8,10 +8,13 @@ const NavBar = () => {
           <a href="/login">Login</a>
         </li>
         <li>
-          <a href="/product">Product</a>
+          <a href="/products">Products</a>
         </li>
         <li>
           <a href="/addproduct">Add products</a>
+        </li>
+        <li>
+          <a href="/productpage"></a>
         </li>
       </ul>
     </nav>
